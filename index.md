@@ -1,5 +1,6 @@
 ---
 layout: doc
+title: Home
 ---
-# Developer Documentation
+# API Documentation
 Website for Sileo developer documentation. Coming soon.
