@@ -1,0 +1,14 @@
+#doc-nav {
+    @media(max-width: 576px) {
+        margin-bottom: 28px;
+
+        a {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    .nav-link.active {
+        font-weight: 600;
+    }
+}

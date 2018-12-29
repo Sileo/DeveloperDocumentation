@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include head.html %}
+        {% if layout.css %}
+        {% for cssFile in layout.css %}
+        <link href="{% if page.absoluteAssets %}{{cssFile | absolute_url}}{% else %}{{cssFile | relative_url}}{% endif %}" rel="stylesheet" />
+        {% endfor %}
+        {% endif %}
+        {% if page.css %}
+        {% for cssFile in page.css %}
+        <link href="{% if page.absoluteAssets %}{{cssFile | absolute_url}}{% else %}{{cssFile | relative_url}}{% endif %}" rel="stylesheet" />
+        {% endfor %}
+        {% endif %}
+    </head>
+    <body>
+        {{ content }}
+        {% include footer.html %}
+    </body>
+</html>

@@ -1,0 +1,37 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="https://getsileo.app/img/favicon.png">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+<link href="https://getsileo.app/css/main.css" rel="stylesheet">
+<link href="{{"/css/main.css" | relative_url}}" rel="stylesheet">
+
+{% if page.title %}
+<title>{{ page.title }} &middot; {{ site.title }}</title>
+<meta property="og:title" content="{{ page.title }}">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta name="twitter:title" content="{{ site.title }}: {{ page.title }}">
+{% else %}
+<title>{{ site.title }}: {{ site.tagline }}</title>
+<meta property="og:title" content="{{ site.title }}">
+<meta name="twitter:title" content="{{ site.title }}">
+{% endif %}
+{% if page.image %}
+<meta property="og:image" content="{{ page.image | absolute_url }}">
+<meta property="twitter:card" content="summary_large_image">
+{% else %}
+<meta property="og:image" href="https://getsileo.app/img/icon.png">
+<meta property="twitter:card" content="summary">
+{% endif %}
+<meta name="twitter:url" content="{{ page.url | absolute_url }}"/>
+<meta name="robots" content="index,follow"/>
+{% if page.description %}
+<meta property="og:description" content="{{ page.description }}">
+<meta name="description" content="{{ page.description }}"/>
+{% else %}
+<meta property="og:description" content="{{ site.description }}">
+<meta name="description" content="{{ site.description }}"/>
+{% endif %}
