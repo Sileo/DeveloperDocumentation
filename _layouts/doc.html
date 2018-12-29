@@ -5,8 +5,8 @@ layout: basic
     <div class="row flex-xl-nowrap">
         <div class="col-12 col-md-3 col-xl-2 bd-sidebar"> 
             <nav id="doc-nav" class="nav flex-column">
-                {% for doc in site.data.doc-nav %}
-                <a href="{{ doc.link | relative_url }}" class='nav-link{% if page.url == doc.link %} active{% endif %}'>{{ page.title }}</a>
+                {% for doc in site.docs %}
+                <a href="{{ doc.permalink | relative_url }}" class='nav-link{% if page.url == doc.permalink %} active{% endif %}'>{{ doc.title }}</a>
                 {% endfor %}
             </nav>
         </div>

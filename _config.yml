@@ -5,3 +5,9 @@ description: Learn about the APIs powering Sileo's innovative new features.
 # Build settings
 markdown: kramdown
 theme: minima
+highlighter: rogue
+permalink: /:slug
+
+collections:
+  docs:
+    output: true
