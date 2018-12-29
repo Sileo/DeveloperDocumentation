@@ -13,6 +13,6 @@ The website for Sileo developer docs, available at [developer.getsileo.app](http
 
 ### Submitting changes
 
-To edit the documentation, find the corrosponding file in `_posts` and modify as you wish. Commit the changes and open a PR on GitHub.
+To edit the documentation, find the corrosponding file in `_docs/` and modify as you wish. Commit the changes and open a PR on GitHub.
 
 Before submitting any changes, please test them locally as the `master` branch is automatically deployed to production.
