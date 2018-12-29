@@ -1,0 +1,11 @@
+<footer>
+    <ul class="section links">
+        {% for page in site.data.site-nav %}
+        <li><a href="{{ page.link | relative_url }}">{{ page.title }}</a></li>
+        {% endfor %}
+    </ul>
+    <div class="section">
+        <p>&copy; Sileo Team</p>
+        <p class="credit">Designed & Developed by <a href="https://www.twitter.com/aesign_">Alessandro Chiarlitti</a> & <a href="https://www.twitter.com/AppleBetasDev">AppleBetas</a>.</p>      
+    </div>
+</footer>

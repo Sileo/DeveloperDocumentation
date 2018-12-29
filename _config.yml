@@ -1,0 +1,7 @@
+title: Sileo Developer
+tagline: API Documentation for Sileo.
+description: Learn about the APIs powering Sileo's innovative new features.
+
+# Build settings
+markdown: kramdown
+theme: minima
