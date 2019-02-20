@@ -53,4 +53,110 @@ Sileo depictions are composed of tabs, which contain an array of views. Views ca
 
 ### View object
 
-TODO: Document this and classes. SO. MUCH. EFFORT.
+A tab is made up of multiple views, allowing repos to customize how their information is displayed on screen. There are multiple different kinds of views, each dictated by a different class.
+
+Each view will define the `class` key, with the remaining keys required being determined by what class is used.
+
+#### Headers
+
+Class: `DepictionHeaderView`
+
+Creates a large title intended for separating major sections of a given tab.
+
+| Key       | Type                                  | Description                    | Required?
+|-----------|---------------------------------------|--------------------------------|----------------|
+| `title` | String | The title of the header.           | Yes
+| `useBottomMargin` | Boolean | Adds a margin below the header. | No
+
+#### Subheaders
+
+Class: `DepictionSubheaderView`
+
+Subheaders are smaller headers.
+
+| Key       | Type                                  | Description                    | Required?
+|-----------|---------------------------------------|--------------------------------|----------------|
+| `title` | String | The title of the header. | Yes
+| `useBottomMargin` | Boolean | Adds a margin below the header. | No
+| `useBoldText` | Boolean | Make the text bold. | No
+
+#### Markdown Text
+
+Class: `DepictionMarkdownView`
+
+Allows for basic Markdown or HTML to be displayed, ideal for large blocks of text.
+
+| Key       | Type                                  | Description                    | Required?
+|-----------|---------------------------------------|--------------------------------|----------------|
+| `markdown` | String | The text to be rendered as Markdown (or HTML)           | Yes
+| `useSpacing` | Boolean | Enable or disable the use of spacing.           | No
+| `useRawFormat` | Boolean | If true, `markdown` will accept basic HTML instead of Markdown. | No
+
+#### Screenshots
+
+Class: `DepictionScreenshotsView`
+
+Displays a screenshot carousel with provided images.
+
+| Key       | Type                                  | Description                    | Required?
+|-----------|---------------------------------------|--------------------------------|----------------|
+| `screenshots` | [Array of Screenshot objects](#screenshot-object) | The screenshots to be used. | Yes
+| `itemCornerRadius` | Integer | Change the roundness of the view's corners.           | No
+| `itemSize` | Dimensions (`{x,y}`) | Change the size of the view. | No
+
+##### Screenshot Object
+
+Screenshot objects just store a URL to an image and accessibility text to suppliment it.
+
+| Key       | Type                                  | Description
+|-----------|---------------------------------------|--------------------------------|----------------|
+| `url` | String (URL) | A URL to the screenshot.
+| `accessibilityText` | String | Text to be interpreted by accessibility features like VoiceOver.
+
+#### Table Text
+
+Class: `DepictionTableTextView`
+
+Adds a table cell with a given value that is ideal for displaying the current version or release date of a tweak.
+
+| Key       | Type                                     | Description    | Required?
+|-----------|---------------------------------------|-------------------|----------------|
+| `title` | String | The title of the row. | Yes
+| `text` | String | The text to be displayed next to the title. | Yes
+
+#### Table Button
+
+Class: `DepictionTableButtonView`
+
+Adds a table cell that opens a given URL when tapped.
+
+| Key       | Type                                     | Description    | Required?
+|-----------|---------------------------------------|-------------------|----------------|
+| `title` | String | The button's label. | Yes
+| `action` | String (URL) | The URL to open when the button is pressed. | Yes
+
+#### Separator
+
+Class: `DepictionSeparatorView`
+
+Displays a separator.
+
+#### Spacer
+
+Class: `DepictionSpacerView`
+
+Adds a space of variable height.
+
+| Key       | Type                                     | Description    | Required?
+|-----------|---------------------------------------|-------------------|----------------|
+| `spacing` | Integer | How high the spacer should be. | Yes
+
+#### AdMob Integration
+
+Class: `DepictionAdmobView`
+
+Adds an [AdMob](https://admob.google.com/home/) banner to the depiction if you wish to display an advertisement.
+
+| Key       | Type                                     | Description    | Required?
+|-----------|---------------------------------------|-------------------|----------------|
+| `adUnitID` | String | Your Ad Unit ID provided by Google. | Yes
