@@ -32,7 +32,7 @@ Sileo depictions are composed of tabs, which contain an array of views. Views ca
 
 ### Root object
 
-<!-- TODO: Get AB to style tables :/ Spacing also seems slighly off. -->
+<!-- TODO: Get AB to style tables properly. -->
 
 | Key           | Type                                  | Description                                                                             |
 |---------------|---------------------------------------|-----------------------------------------------------------------------------------------|
