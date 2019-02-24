@@ -66,7 +66,9 @@ Creates a large title intended for separating major sections of a given tab.
 | Key       | Type                                  | Description                    | Required?
 |-----------|---------------------------------------|--------------------------------|----------------|
 | `title` | String | The title of the header.           | Yes
-| `useBottomMargin` | Boolean | Adds a margin below the header. | No
+| `useMargins` | Boolean | Allow margins above/below the header. | No
+| `useBottomMargin` | Boolean | Adds a margin below the header (does nothing if useMargins = false). | No
+| `useBoldText` | Boolean | Make the text bold. | No
 
 #### Subheaders
 
@@ -77,7 +79,8 @@ Subheaders are smaller headers.
 | Key       | Type                                  | Description                    | Required?
 |-----------|---------------------------------------|--------------------------------|----------------|
 | `title` | String | The title of the header. | Yes
-| `useBottomMargin` | Boolean | Adds a margin below the header. | No
+| `useMargins` | Boolean | Allow margins above/below the header. | No
+| `useBottomMargin` | Boolean | Adds a margin below the header (does nothing if useMargins = false). | No
 | `useBoldText` | Boolean | Make the text bold. | No
 
 #### Markdown Text
@@ -89,7 +92,8 @@ Allows for basic Markdown or HTML to be displayed, ideal for large blocks of tex
 | Key       | Type                                  | Description                    | Required?
 |-----------|---------------------------------------|--------------------------------|----------------|
 | `markdown` | String | The text to be rendered as Markdown (or HTML)           | Yes
-| `useSpacing` | Boolean | Enable or disable the use of spacing.           | No
+| `useSpacing` | Boolean | Enable or disable the use of vertical spacing.           | No
+| `useMargins` | Boolean | Enable or disable the use of horizontal margins.           | No
 | `useRawFormat` | Boolean | If true, `markdown` will accept basic HTML instead of Markdown. | No
 
 #### Screenshots
@@ -101,7 +105,7 @@ Displays a screenshot carousel with provided images.
 | Key       | Type                                  | Description                    | Required?
 |-----------|---------------------------------------|--------------------------------|----------------|
 | `screenshots` | [Array of Screenshot objects](#screenshot-object) | The screenshots to be used. | Yes
-| `itemCornerRadius` | Integer | Change the roundness of the view's corners.           | No
+| `itemCornerRadius` | Double | Change the roundness of the view's corners.           | No
 | `itemSize` | Dimensions (`{x,y}`) | Change the size of the view. | No
 
 ##### Screenshot Object
@@ -112,6 +116,7 @@ Screenshot objects just store a URL to an image and accessibility text to suppli
 |-----------|---------------------------------------|--------------------------------|----------------|
 | `url` | String (URL) | A URL to the screenshot.
 | `accessibilityText` | String | Text to be interpreted by accessibility features like VoiceOver.
+| `video` | Boolean | Sets whether the URL is a video rather than an image
 
 #### Table Text
 
@@ -134,6 +139,9 @@ Adds a table cell that opens a given URL when tapped.
 |-----------|---------------------------------------|-------------------|----------------|
 | `title` | String | The button's label. | Yes
 | `action` | String (URL) | The URL to open when the button is pressed. | Yes
+| `backupAction` | String (URL) | An alternate action to try if the action is not supported. | No
+| `yPadding` | Double | Padding to put above and below the button. | No
+| `openExternal` | Double | Set whether to open the URL in an external app. | No
 
 #### Separator
 
@@ -149,7 +157,7 @@ Adds a space of variable height.
 
 | Key       | Type                                     | Description    | Required?
 |-----------|---------------------------------------|-------------------|----------------|
-| `spacing` | Integer | How high the spacer should be. | Yes
+| `spacing` | Double | How high the spacer should be. | Yes
 
 #### AdMob Integration
 
