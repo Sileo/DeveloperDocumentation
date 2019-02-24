@@ -112,11 +112,11 @@ Displays a screenshot carousel with provided images.
 
 Screenshot objects just store a URL to an image and accessibility text to suppliment it.
 
-| Key       | Type                                  | Description
+| Key       | Type                                  | Description                    | Required?
 |-----------|---------------------------------------|--------------------------------|----------------|
-| `url` | String (URL) | A URL to the screenshot.
-| `accessibilityText` | String | Text to be interpreted by accessibility features like VoiceOver.
-| `video` | Boolean | Sets whether the URL is a video rather than an image
+| `url` | String (URL) | A URL to the screenshot. | Yes
+| `accessibilityText` | String | Text to be interpreted by accessibility features like VoiceOver. | Yes
+| `video` | Boolean | Sets whether the URL is a video rather than an image | No
 
 #### Table Text
 
