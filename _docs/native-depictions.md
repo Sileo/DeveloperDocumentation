@@ -124,7 +124,7 @@ Renders a video.
 | `autoplay` | Boolean (whitelisted)                | Enables auto-play for the video. | No
 | `showPlaybackControls` | Boolean (whitelisted)    | Hides the controls if auto-play is enabled. | No
 
-
+*Note: Only whitelisted repositories can use auto-play functionality. Please contact the Sileo team for inquiries.*
 
 #### Images
 
