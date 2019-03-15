@@ -123,6 +123,7 @@ Renders a video.
 | `alignment` | AlignEnum                           | Change the alignment to the left (`0`), center (`1`), or the right (`2`). |  No
 | `autoplay` | Boolean (whitelisted)                | Enables auto-play for the video. | No
 | `showPlaybackControls` | Boolean (whitelisted)    | Hides the controls if auto-play is enabled. | No
+| `loop`    | Boolean (whitelisted)                 | Allows videos to loop if auto-play is enabledd. | No
 
 *Note: Only whitelisted repositories can use auto-play functionality. Please contact the Sileo team for inquiries.*
 
