@@ -18,7 +18,7 @@ Sileo featured are written using JSON. To made Sileo featured banner, create JSO
 * 16:9 ratio (1920x1080 px recommended) banner that does not have the name of the package inside it
 
 ## Structure
-Sileo featued uses a class called ```FeatuedBannersView```
+Sileo featured uses a class called ```FeaturedBannersView```
 
 ## Root object
 | Key | Type | Description |
