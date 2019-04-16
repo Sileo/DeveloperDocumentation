@@ -99,5 +99,5 @@ Last, You need to put Banner object into Root object
 ## Example
 You can refer to this.
 
-[**Sileo featued of Dynastic Repository**](https://repo.dynastic.co/sileo-featued.json)  
-[**Sileo featued of Nexus Repository**](https://nexusrepo.kro.kr/sileo-featued.json)
+[**Sileo featured of Dynastic Repository**](https://repo.dynastic.co/sileo-featured.json)  
+[**Sileo featured of Nexus Repository**](https://nexusrepo.kro.kr/sileo-featured.json)
