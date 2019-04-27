@@ -120,7 +120,7 @@ Note: token is optional
 **Response (Success):**
 ```json
 {
-   "price": "1.99",
+   "price": "$1.99",
    "purchased": false,
    "available": true
 }
