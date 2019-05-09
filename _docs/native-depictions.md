@@ -95,6 +95,25 @@ Subheaders are smaller headers.
 | `useBottomMargin` | Boolean | Adds a margin below the header (if margins are enabled). | No
 | `useBoldText` | Boolean | Make the text bold. | No
 
+#### Labels
+
+Class: `DepictionLabelView`
+
+Labels are highly-customizable snippets of text with a customizable color.
+
+| Key       | Type                                  | Description                    | Required?
+|-----------|---------------------------------------|--------------------------------|----------------|
+| `text` | String | The text to be displayed next to the title. | Yes
+| `margins` | MarginsEnum | Changes the position of the element. Either is `top`, `left`, `bottom`, or `right`. | No
+| `useMargins` | Boolean | Allow margins above/below the header. | No
+| `usePadding` | Boolean | Add a slight margin to the top and bottom of a label. | No
+| `fontWeight` | String | The "weight" of the text. | No
+| `fontSize` | Double | The size of the label text. | No
+| `textColor` | String (Color) | Change the color of the label text. | No
+| `alignment` | AlignEnum | Change the alignment to the left (`0`), center (`1`), or the right (`2`). |  No
+
+The `fontWeight` key accepts the following values: `black`, `bold`, `heavy`, `light`, `medium`, `semibold`, `regular`, `normal`, `thin`, and `ultralight`.
+
 #### Markdown Text
 
 Class: `DepictionMarkdownView`
