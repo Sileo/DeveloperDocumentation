@@ -4,7 +4,8 @@ title: Native Depictions
 permalink: /native-depictions
 ---
 # Native Depictions
-**NOTE:** This page is under heavy development and is subject to change.
+
+**NOTE:** This page is a work in progress! If you see any mistakes, please [file an issue on our issue tracker](https://bugs.getsileo.app).
 
 Sileo uses a revolutionary new format for depictions, which can give your users amazing new experiences whilst browsing your repository. Learn how simple it is to support this new format, with examples.
 
@@ -38,12 +39,12 @@ Each of the below objects *must* have a class.
 
 Class: `DepictionTabView`
 
-| Key           | Type                                  | Description                                                                             |
-|---------------|---------------------------------------|-----------------------------------------------------------------------------------------
+| Key           | Type                                  | Description
+|---------------|---------------------------------------|-----------------------------------------
 | `minVersion`  | String                                | Minimum app version required for Sileo to display the depiction. Should be 0.1 for now.
 | `headerImage` | String (URL)                          | A URL to the image that should be displayed in the header of the package page.
-| `tintColor`   | String (Color)                        | A CSS-compatible color code. Most views also support this property.
-| `tabs`        | [Array of Tab objects](#tab-object) | An array of tabs that the depiction should display.                                     |
+| `tintColor`   | String (Color)                        | A CSS-compatible color code to act as the package's main accent.
+| `tabs`        | [Array of Tab objects](#tab-object)   | An array of tabs that the depiction should display.                                     |
 
 <br>
 
@@ -58,7 +59,7 @@ Tabs are separate screens that are made up of views. They can be used to separat
 | `tabname` | String                                | The name of the tab.           | Yes        
 | `views`   | [Array of View objects](#view-object) | The views (layout) of the tab. | Yes        
 | `orientation` | String (`landscape`/`portrait`)   | Whether the view is portrait or landscape. | No
-| `xPadding` | Double                               | Change the horizontal padding. | No 
+| `xPadding` | Double                               | Change the horizontal padding. | No
 
 <br>
 
@@ -126,6 +127,8 @@ Allows for basic Markdown or HTML to be displayed, ideal for large blocks of tex
 | `useSpacing` | Boolean | Enable or disable the use of vertical spacing.           | No
 | `useMargins` | Boolean | Enable or disable the use of horizontal margins.           | No
 | `useRawFormat` | Boolean | If true, `markdown` will accept basic HTML instead of Markdown. | No
+| `tintColor`   | String (Color) | An accent color used for links. Accepts CSS-compatible color strings. | No
+
 
 #### Videos
 
@@ -210,6 +213,7 @@ Adds a table cell that opens a given URL or performs another action when tapped.
 | `backupAction` | String (URL) | An alternate action to try if the action is not supported. | No
 | `openExternal` | Double | Set whether to open the URL in an external app. | No
 | `yPadding` | Double | Padding to put above and below the button. | No
+| `tintColor`   | String (Color) | The color of the button text. Accepts CSS-compatible color strings. | No
 
 #### Button
 
@@ -224,6 +228,7 @@ Adds a button that opens a given URL or performs another action when tapped.
 | `backupAction` | String (URL) | An alternate action to try if the action is not supported. | No
 | `openExternal` | Double | Set whether to open the URL in an external app. | No
 | `yPadding` | Double | Padding to put above and below the button. | No
+| `tintColor`   | String (Color) | The background color of the button. Accepts CSS-compatible color strings. | No
 
 #### Separator
 
@@ -276,4 +281,5 @@ Displays a full review entry, including author, the rating they left, and a Mark
 | `author`    | String              | The person who wrote the review.     | Yes
 | `markdown`  | String (Markdown)   | The body of the review.              | Yes
 | `rating`    | Double (0-5)        | How many stars should be shaded in.  | No
+| `tintColor`   | String (Color) | An accent color used for links. Accepts CSS-compatible color strings. | No
 
