@@ -39,12 +39,13 @@ Each of the below objects *must* have a class.
 
 Class: `DepictionTabView`
 
-| Key           | Type                                  | Description
+| Key           | Type                                  | Description | Required?
 |---------------|---------------------------------------|-----------------------------------------
-| `minVersion`  | String                                | Minimum app version required for Sileo to display the depiction. Should be 0.1 for now.
-| `headerImage` | String (URL)                          | A URL to the image that should be displayed in the header of the package page.
-| `tintColor`   | String (Color)                        | A CSS-compatible color code to act as the package's main accent.
-| `tabs`        | [Array of Tab objects](#tab-object)   | An array of tabs that the depiction should display.                                     |
+| `minVersion`  | String                                | Minimum app version required for Sileo to display the depiction. Should be 0.1 for now. | Yes
+| `headerImage` | String (URL)                          | A URL to the image that should be displayed in the header of the package page. | No
+| `tintColor`   | String (Color)                        | A CSS-compatible color code to act as the package's main accent. | No
+| `tabs`        | [Array of Tab objects](#tab-object)   | An array of tabs that the depiction should display. | Yes
+| `backgroundColor` | String (Color)                | A CSS-compatible color code to be the tab's background color. | No
 
 <br>
 
@@ -62,6 +63,17 @@ Tabs are separate screens that are made up of views. They can be used to separat
 | `xPadding` | Double                               | Change the horizontal padding. | No
 
 <br>
+
+#### Changing View Width
+
+If you want to change the width of a view, you can use a `DepictionAutoStackView` in addition to a `DepictionStackView`.
+
+Class: `DepictionAutoStackView`
+
+| Key       | Type                                  | Description                    | Required?  
+|-----------|---------------------------------------|--------------------------------|------------|
+| `views`   | [Array of View objects](#view-object) | The views (layout) to change the width of. | Yes
+| `horizontalSpacing` | Double                      | How wide the view should be.   | Yes
 
 ### View object
 
@@ -265,8 +277,8 @@ Graphically displays a rating on a five-star scale.
 
 | Key         | Type                | Description                          | Required?
 |-------------|---------------------|--------------------------------------|----------------|
-| `rating`    | Double (0-5)        | How many stars should be shaded in.  | No
-| `alignment` | AlignEnum           | Change the alignment to the left (`0`), center (`1`), or the right (`2`). | No
+| `rating`    | Double (0-5)        | How many stars should be shaded in.  | Yes
+| `alignment` | AlignEnum           | Change the alignment to the left (`0`), center (`1`), or the right (`2`). | Yes
 
 
 #### Reviews
