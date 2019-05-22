@@ -41,7 +41,7 @@ Class: `DepictionTabView`
 
 | Key           | Type                                  | Description | Required?
 |---------------|---------------------------------------|-----------------------------------------
-| `minVersion`  | String                                | Minimum version of Sileo required to properly display depiction. This is usually set to 0.1 | Yes
+| `minVersion`  | String                                | Minimum version of Sileo required to properly display the depiction. Usually set to 0.1. | Yes
 | `headerImage` | String (URL)                          | A URL to the image that should be displayed in the header of the package page. | No
 | `tintColor`   | String (Color)                        | A CSS-compatible color code to act as the package's main accent. | No
 | `tabs`        | [Array of Tab objects](#tab-object)   | An array of tabs that the depiction should display. | Yes
