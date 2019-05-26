@@ -18,6 +18,8 @@ Sileo's featured banners are written using JSON. To feature a tweak on your repo
 * A banner with a 16:9 ratio (1920x1080 px recommended).
   * While not required but reccomended, you should avoid putting text inside of the banner, as to get featured on Sileo's main page, you cannot have text inside banners.
 
+---
+
 ## Structure
 Sileo's featured tab uses a class called ```FeaturedBannersView```.
 
