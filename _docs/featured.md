@@ -11,21 +11,24 @@ Each repository can show featured banner in Sources tab.
 <img src="https://i.imgur.com/CM2tjK6.png" width="200" height="50%">
 
 ## Getting Started
-Sileo featured are written using JSON. To made Sileo featured banner, create JSON file and name it ```sileo-featured.json``` at the top of your repository file.
+Sileo's featured banners are written using JSON. To feature a tweak on your repo in a Sileo featured banner, create a JSON file and name it ```sileo-featured.json``` at the top of your repository file.
 
-**Note:** It must have followings.
+**Note:** It must have the following pre-requisites.
 
-* 16:9 ratio (1920x1080 px recommended) banner that does not have the name of the package inside it
+* A banner with a 16:9 ratio (1920x1080 px recommended).
+  * While not required but reccomended, you should avoid putting text inside of the banner, as to get featured on Sileo's main page, you cannot have text inside banners.
 
 ## Structure
-Sileo featured uses a class called ```FeaturedBannersView```
+Sileo's featured tab uses a class called ```FeaturedBannersView```.
 
 ## Root object
-| Key | Type | Description |
-|---|:---:|---|
-| `itemSize` | String | Size of image in featured banner |
-| `itemCornerRadius` | String | Corner radius of featured banner |
-| `banners` | Array of Banner objects | An array of banners that the featured should contain |
+
+| Key                | Type           | Description                                                | Required? |
+| ------------------ | -------------- | ---------------------------------------------------------- | --------- |
+| `itemSize`         | String         | Size of the image in the featured banner.                  | Yes       |
+| `itemCornerRadius` | String         | The corner radius of the banners.                          | Yes       |
+| `banners`          | String (Color) | An array of banners that the featured view should contain. | Yes       |
+
 
 ### Usage
 
@@ -40,16 +43,18 @@ Sileo featured uses a class called ```FeaturedBannersView```
 }
 ```
 
-Recommended `itemSize` is `263, 148` and recommended `itemCornerRadius` is `10`.
+The reccomendeded `itemSize` is `263, 148` and, recommendeded `itemCornerRadius` is `10`.
 
 ## Banner object
-| Key | Type | Description |
-|---|:---:|---|
-| `url` | String (URL) | A URL to the image that should be displayed in featured banner |
-| `title` | String | The title of the banner |
-| `package` | String (Bundle ID) | A bundle id of featured package |
-| `hideShadow` | Boolean | A Shadow under the title
 
+| Key          | Type               | Description                                                         |
+| ------------ | ------------------ | ------------------------------------------------------------------- |
+| `url`        | String (URL)       | A URL to the image that should be displayed in the featured banner. |
+| `title`      | String             | The title of the banner.                                            |
+| `package`    | String (Bundle ID) | A bundle id of featured package.                                    |
+| `hideShadow` | Boolean            | Hide the shadow under/around the banner.                            |
+
+<br>
 ### Usage
 ```json
 {  
@@ -59,21 +64,22 @@ Recommended `itemSize` is `263, 148` and recommended `itemCornerRadius` is `10`.
    "hideShadow":false
 }
 ```
-For example, this is the banner of PowerGuard
+For example, this is the featured JSON for ShortLook. 
 
 ```json
-{  
-   "url":"https://nexusrepo.kro.kr/sileo-featured-images/powerguardbanner.png",
-   "title":"PowerGuard",
-   "package":"com.peterdev.powerguard",
-   "hideShadow":false
+{
+   "url": "https://repo-cdn.dynastic.co/91373858589769729.97ea6548c456372ba1ba0e6640e7e73f-750?size=750",
+   "title": "ShortLook",
+   "package": "co.dynastic.ios.tweak.shortlook",
+   "hideShadow": false
 }
 ```
 
 ## Finish
-Last, You need to put Banner object into Root object
+To finish, put each `banner` object inside the root object.
 
-### Code
+### Usage
+
 ```json
 {  
    "class":"FeaturedBannersView",
@@ -97,7 +103,6 @@ Last, You need to put Banner object into Root object
 ```
 
 ## Example
-You can refer to this.
+You can refer to these repo's `sileo-featured.json` files.
 
-[**Sileo featured of Dynastic Repository**](https://repo.dynastic.co/sileo-featured.json)  
-[**Sileo featured of Nexus Repository**](https://nexusrepo.kro.kr/sileo-featured.json)
+[**Sileo featured file for Dynastic Repository**](https://repo.dynastic.co/sileo-featured.json)  
