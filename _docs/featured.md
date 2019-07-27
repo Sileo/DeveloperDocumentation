@@ -21,8 +21,9 @@ Sileo featured are written using JSON. To made Sileo featured banner, create JSO
 Sileo featured uses a class called ```FeaturedBannersView```
 
 ## Root object
+
 | Key | Type | Description |
-|---|:---:|---|
+|---|---|---|
 | `itemSize` | String | Size of image in featured banner |
 | `itemCornerRadius` | String | Corner radius of featured banner |
 | `banners` | Array of Banner objects | An array of banners that the featured should contain |
@@ -43,8 +44,9 @@ Sileo featured uses a class called ```FeaturedBannersView```
 Recommended `itemSize` is `263, 148` and recommended `itemCornerRadius` is `10`.
 
 ## Banner object
+
 | Key | Type | Description |
-|---|:---:|---|
+|---|---|---|
 | `url` | String (URL) | A URL to the image that should be displayed in featured banner |
 | `title` | String | The title of the banner |
 | `package` | String (Bundle ID) | A bundle id of featured package |
