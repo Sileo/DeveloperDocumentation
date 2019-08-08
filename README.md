@@ -7,7 +7,7 @@ The website for Sileo developer docs, available at [developer.getsileo.app](http
 
 ### Local setup
 
-1. `gem install bundler jekyll`
+1. `sudo gem install bundler jekyll`
 2. `bundle install`
 3. `bundle exec jekyll serve`
 
