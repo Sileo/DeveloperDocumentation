@@ -105,7 +105,16 @@ This payment secret should be stored in the keychain and require authentication 
 
 `POST /package/:package_id/info`: 
 
-Note: token is optional
+**Note:** token is _optional_
+
+**Note 2:** To make Sileo do the POST request (for a paid package), be sure that you added the tag `cydia::commercial` inside the `Tag` key of the `control` file of your tweak or to your repo's `Packages` file. Here's a (shortend) example package entry for ShortLook.
+
+```
+Package: co.dynastic.ios.tweak.shortlook
+Name: ShortLook
+...
+Tag: cydia::commercial
+```
 
 **Request:**
 `/package/org.coolstar.classicfolders2/info`
