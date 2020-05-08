@@ -117,7 +117,7 @@ Labels are highly-customizable snippets of text with a customizable color.
 | Key       | Type                                  | Description                    | Required?
 |-----------|---------------------------------------|--------------------------------|----------------|
 | `text` | String | The text to be displayed next to the title. | Yes
-| `margins` | MarginsEnum | Changes the position of the element. Either is `top`, `left`, `bottom`, or `right`. | No
+| `margins` | UIEdgeInsets | Adds margins around the element. Formatted `{top, left, bottom, right}`. | No
 | `useMargins` | Boolean | Allow margins above/below the header. | No
 | `usePadding` | Boolean | Add a slight margin to the top and bottom of a label. | No
 | `fontWeight` | String | The "weight" of the text. | No
