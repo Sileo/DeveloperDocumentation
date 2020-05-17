@@ -46,7 +46,19 @@ When a download of a package on a payment-providing repo is requested by an auth
 
 Here's what that will look like in Sileo:
 
-![payment_provider_banner_sample](https://i.imgur.com/PEpJrBb.png)
+<picture>
+  <source
+      srcset="/img/loginbanner-dark.png"
+      media="(prefers-color-scheme: dark)"
+  />
+  <img
+      src="/img/loginbanner.png"
+      width="400"
+      height="auto"
+  />
+</picture>
+
+<br>
 
 ### User Info
 `POST /user_info`: Get the user's information and a list of purchased items available for display
@@ -62,10 +74,10 @@ Here's what that will look like in Sileo:
 
 ```json
 {
-   "items": ["org.coolstar.classicfolders2", "org.coolstar.betterpowerdown"],
+   "items": ["com.23aaron.zeze", "xyz.royalapps.jellyfish"],
    "user": {
-      "name": "AppleBetas",
-      "email": "applebetas@example.com"
+      "name": "Ayden Panhuyzen",
+      "email": "ayden@example.com"
    }
 }
 ```

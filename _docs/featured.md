@@ -7,8 +7,31 @@ permalink: /sileo-featured
 Each repository can show featured banner in Sources tab.
 
 ## Preview
-<img src="https://i.imgur.com/rsdFWQm.png" width="200" height="50%">
-<img src="https://i.imgur.com/CM2tjK6.png" width="200" height="50%">
+<picture>
+  <source
+      srcset="/img/featured1-dark.png"
+      media="(prefers-color-scheme: dark)"
+  />
+  <img
+      src="/img/featured1.png"
+      width="200"
+      height="auto"
+  />
+</picture>
+<picture>
+  <source
+      srcset="/img/featured2-dark.png"
+      media="(prefers-color-scheme: dark)"
+  />
+  <img
+      src="/img/featured2.png"
+      width="200"
+      height="auto"
+  />
+</picture>
+
+<br>
+
 
 ## Getting Started
 Sileo's featured banners are written using JSON. To feature a tweak on your repo in a Sileo featured banner, create a JSON file and name it ```sileo-featured.json``` at the top of your repository file.

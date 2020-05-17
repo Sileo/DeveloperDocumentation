@@ -27,3 +27,51 @@ table {
 h4 {
     margin-top: 7px;
 }
+
+@media (prefers-color-scheme: dark) {
+
+    body {
+        
+        background-color: #111111;
+
+        color: #ffffff;
+
+    }
+
+    .header {
+        
+        background-color: #191919;
+
+    }
+
+    .page-title {
+
+        color: #ffffff !important;
+
+    }
+
+    pre {
+
+        color: #a3a3a3;
+
+    }
+
+    .basic {
+
+        border-bottom: none !important;
+
+    }
+
+    footer {
+        
+        background: #191919 !important;
+    
+        .section {
+            
+            border-bottom: 1px solid #111111;
+            
+        }
+    
+    }
+
+}
