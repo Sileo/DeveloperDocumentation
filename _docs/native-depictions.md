@@ -5,7 +5,7 @@ permalink: /native-depictions
 ---
 # Native Depictions
 
-**NOTE:** This page is a work in progress! If you see any mistakes, please [file an issue on our issue tracker](https://bugs.getsileo.app).
+**NOTE:** This page is a work in progress! If you see any mistakes, please [file an issue on our issue tracker](https://github.com/Sileo/Sileo/issues/).
 
 Sileo uses a revolutionary new format for depictions, which can give your users amazing new experiences whilst browsing your repository. Learn how simple it is to support this new format, with examples.
 
@@ -33,7 +33,9 @@ Sileo depictions are composed of tabs, which contain an array of views. Views ca
 
 Each of the below objects *must* have a class.
 
-### Root object
+### Tab object
+
+Tabs are separate screens that are made up of views. They can be used to separate between more important data (such as a package's name) and other supplemental information (such as a changelog).
 
 <!-- TODO: Get AB to style tables properly. -->
 
@@ -44,16 +46,16 @@ Class: `DepictionTabView`
 | `minVersion`  | String                                | Minimum version of Sileo required to properly display the depiction. Usually set to 0.1. | Yes
 | `headerImage` | String (URL)                          | A URL to the image that should be displayed in the header of the package page. | No
 | `tintColor`   | String (Color)                        | A CSS-compatible color code to act as the package's main accent. | No
-| `tabs`        | [Array of Tab objects](#tab-object)   | An array of tabs that the depiction should display. | Yes
-| `backgroundColor` | String (Color)                | A CSS-compatible color code to be the tab's background color. | No
+| `tabs`        | [Array of Page objects](#stack-object)   | An array of pages that the depiction should display. | Yes
+| `backgroundColor` | String (Color)                    | A CSS-compatible color code to be the tab's background color. | No
 
 <br>
 
-### Tab object
+### Page object
 
 Class: `DepictionStackView`
 
-Tabs are separate screens that are made up of views. They can be used to separate between more important data (such as a package's name) and other supplemental information (such as a changelog).
+Contained within the `tabs` property is a page object, which consists of an array of [View objects](#view-objects) that are to be displayed on screen at one given time.
 
 | Key       | Type                                  | Description                    | Required?  
 |-----------|---------------------------------------|--------------------------------|------------|
@@ -75,11 +77,38 @@ Class: `DepictionAutoStackView`
 | `views`   | [Array of View objects](#view-object) | The views (layout) to change the width of. | Yes
 | `horizontalSpacing` | Double                      | How wide the view should be.   | Yes
 
-### View object
+### View objects
 
-A tab is made up of multiple views, allowing repos to customize how their information is displayed on screen. There are multiple different kinds of views, each dictated by a different class.
+A page is made up of multiple views, allowing repos to customize how their information is displayed on screen. There are multiple different kinds of views, each dictated by a different class.
 
 Each view will define the `class` key, with the remaining keys required being determined by what class is used.
+
+Given what we know so far, a basic native depiction looks like this:
+
+```json
+{
+  "minVersion": "0.1",
+  "class": "DepictionTabView",
+  "headerImage": "https://example.com/banner.png",
+  "tintColor": "#6264D3",
+  "tabs": [
+    {
+      "class": "DepictionStackView",
+      "tabname": "Example page",
+      "views": [
+        {
+          "class": "DepictionHeaderView",
+          "title": "This is an example "
+        },
+        // ... more views can be added here.
+      ],
+        // ... more pages can be added here.
+    }
+  ]
+}
+```
+
+A list of the different views that can be used can be found below:
 
 #### Headers
 
@@ -146,7 +175,7 @@ Allows for basic Markdown or HTML to be displayed, ideal for large blocks of tex
 
 Class: `DepictionVideoView`
 
-Renders a video.
+Embeds a video in a depiction, given a link to a video file.
 
 | Key       | Type                                  | Description                    | Required?
 |-----------|---------------------------------------|--------------------------------|----------------|
@@ -165,7 +194,7 @@ Renders a video.
 
 Class: `DepictionImageView`
 
-Renders an image.
+Embeds an image in a depiction, given a link to an image.
 
 | Key       | Type                                  | Description                    | Required?
 |-----------|---------------------------------------|--------------------------------|----------------|
@@ -180,7 +209,21 @@ Renders an image.
 
 Class: `DepictionScreenshotsView`
 
-Displays a screenshot carousel with provided images.
+Displays a scrollable screenshot carousel with provided images that can be enlarged on tap.
+
+<picture>
+  <source
+      srcset="/img/nd-dark/screenshot.jpg"
+      style="border-radius: 10px;"
+      media="(prefers-color-scheme: dark)"
+  />
+  <img
+      src="/img/nd/screenshot.jpg"
+      style="border-radius: 10px;"
+      width="400"
+      height="auto"
+  />
+</picture>
 
 | Key       | Type                                  | Description                    | Required?
 |-----------|---------------------------------------|--------------------------------|----------------|
@@ -193,7 +236,7 @@ Displays a screenshot carousel with provided images.
 
 ##### Screenshot Object
 
-Screenshot objects just store a URL to an image and accessibility text to suppliment it.
+Screenshot objects store a URL to an image and accessibility text to supplement it.
 
 | Key       | Type                                  | Description                    | Required?
 |-----------|---------------------------------------|--------------------------------|----------------|
@@ -207,6 +250,20 @@ Class: `DepictionTableTextView`
 
 Adds a table cell with a given value that is ideal for displaying the current version or release date of a tweak.
 
+<picture>
+  <source
+      srcset="/img/nd-dark/table.jpg"
+      style="border-radius: 10px;"
+      media="(prefers-color-scheme: dark)"
+  />
+  <img
+      src="/img/nd/table.jpg"
+      style="border-radius: 10px;"
+      width="400"
+      height="auto"
+  />
+</picture>
+
 | Key       | Type                                     | Description    | Required?
 |-----------|---------------------------------------|-------------------|----------------|
 | `title` | String | The title of the row. | Yes
@@ -218,6 +275,20 @@ Class: `DepictionTableButtonView`
 
 Adds a table cell that opens a given URL or performs another action when tapped.
 
+<picture>
+  <source
+      srcset="/img/nd-dark/tableButton.jpg"
+      style="border-radius: 10px;"
+      media="(prefers-color-scheme: dark)"
+  />
+  <img
+      src="/img/nd/tableButton.jpg"
+      style="border-radius: 10px;"
+      width="400"
+      height="auto"
+  />
+</picture>
+
 | Key       | Type                                     | Description    | Required?
 |-----------|---------------------------------------|-------------------|----------------|
 | `title` | String | The button's label. | Yes
@@ -227,11 +298,22 @@ Adds a table cell that opens a given URL or performs another action when tapped.
 | `yPadding` | Double | Padding to put above and below the button. | No
 | `tintColor`   | String (Color) | The color of the button text. Accepts CSS-compatible color strings. | No
 
+*If `action` is prepended with `depiction-`, Sileo will try to open the URL as a native depiction.*
+
 #### Button
 
 Class: `DepictionButtonView`
 
-Adds a button that opens a given URL or performs another action when tapped.
+Adds a wide button that opens a given URL or performs another action when tapped.
+
+<picture>
+  <img
+      src="/img/nd/button.jpg"
+      style="border-radius: 10px;"
+      width="400"
+      height="auto"
+  />
+</picture>
 
 | Key       | Type                                     | Description    | Required?
 |-----------|---------------------------------------|-------------------|----------------|
@@ -252,7 +334,7 @@ Displays a separator.
 
 Class: `DepictionSpacerView`
 
-Adds a space of variable height.
+Adds a blank space of variable height.
 
 | Key       | Type                                     | Description    | Required?
 |-----------|---------------------------------------|-------------------|----------------|
@@ -286,6 +368,20 @@ Graphically displays a rating on a five-star scale.
 Class: `DepictionReviewView`
 
 Displays a full review entry, including author, the rating they left, and a Markdown-compatible reply.
+
+<picture>
+  <source
+      srcset="/img/nd-dark/review.jpg"
+      style="border-radius: 10px;"
+      media="(prefers-color-scheme: dark)"
+  />
+  <img
+      src="/img/nd/review.jpg"
+      style="border-radius: 10px;"
+      width="400"
+      height="auto"
+  />
+</picture>
 
 | Key         | Type                | Description                          | Required?
 |-------------|---------------------|--------------------------------------|----------------|
