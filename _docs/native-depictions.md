@@ -43,7 +43,7 @@ Class: `DepictionTabView`
 
 | Key           | Type                                  | Description | Required?
 |---------------|---------------------------------------|-----------------------------------------
-| `minVersion`  | String                                | Minimum version of Sileo required to properly display the depiction. Usually set to 0.1. | Yes
+| `minVersion`  | String                                | The version of native depictions to use. Currently set to `0.3`. | Yes
 | `headerImage` | String (URL)                          | A URL to the image that should be displayed in the header of the package page. | No
 | `tintColor`   | String (Color)                        | A CSS-compatible color code to act as the package's main accent. | No
 | `tabs`        | [Array of Page objects](#stack-object)   | An array of pages that the depiction should display. | Yes
@@ -161,6 +161,8 @@ The `fontWeight` key accepts the following values: `black`, `bold`, `heavy`, `li
 Class: `DepictionMarkdownView`
 
 Allows for basic Markdown or HTML to be displayed, ideal for large blocks of text.
+
+**Note:** Using `useRawFormat` is not recommended because it results in a performance hit in Sileo.
 
 | Key       | Type                                  | Description                    | Required?
 |-----------|---------------------------------------|--------------------------------|----------------|
