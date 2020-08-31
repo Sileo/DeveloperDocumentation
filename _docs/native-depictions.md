@@ -5,7 +5,7 @@ permalink: /native-depictions
 ---
 # Native Depictions
 
-**NOTE:** This page is a work in progress! If you see any mistakes, please [file an issue on our issue tracker](https://github.com/Sileo/Sileo/issues/).
+**NOTE:** This page is a work in progress and may not be complete! If you see any mistakes, please [file an issue on our issue tracker](https://github.com/Sileo/DeveloperDocumentation/issues).
 
 Sileo uses a revolutionary new format for depictions, which can give your users amazing new experiences whilst browsing your repository. Learn how simple it is to support this new format, with examples.
 
@@ -43,7 +43,7 @@ Class: `DepictionTabView`
 
 | Key           | Type                                  | Description | Required?
 |---------------|---------------------------------------|-----------------------------------------
-| `minVersion`  | String                                | The version of native depictions to use. Currently set to `0.3`. | Yes
+| `minVersion`  | String                                | The version of native depictions to use. Currently set to `0.4`. | Yes
 | `headerImage` | String (URL)                          | A URL to the image that should be displayed in the header of the package page. | No
 | `tintColor`   | String (Color)                        | A CSS-compatible color code to act as the package's main accent. | No
 | `tabs`        | [Array of Page objects](#stack-object)   | An array of pages that the depiction should display. | Yes
@@ -62,7 +62,7 @@ Contained within the `tabs` property is a page object, which consists of an arra
 | `tabname` | String                                | The name of the tab.           | Yes        
 | `views`   | [Array of View objects](#view-object) | The views (layout) of the tab. | Yes        
 | `orientation` | String (`landscape`/`portrait`)   | Whether the view is portrait or landscape. | No
-| `xPadding` | Double                               | Change the horizontal padding. | No
+| `xPadding` | Double                               | Padding to put above and below the element | No
 
 <br>
 
@@ -77,6 +77,18 @@ Class: `DepictionAutoStackView`
 | `views`   | [Array of View objects](#view-object) | The views (layout) to change the width of. | Yes
 | `horizontalSpacing` | Double                      | How wide the view should be.   | Yes
 
+#### Overlapping Views
+
+Similarly, if you wish to layer mutliple views on top of one another, you can use a `DepictionLayerView`.
+
+Class: `DepictionLayerView`
+
+
+| Key       | Type                                  | Description                    | Required?  
+|-----------|---------------------------------------|--------------------------------|------------|
+| `views`   | [Array of View objects](#view-object) | The views to layer on top f| Yes
+| `tintColor`   | String (Color) | An accent color used for links. Accepts CSS-compatible color strings. | No
+
 ### View objects
 
 A page is made up of multiple views, allowing repos to customize how their information is displayed on screen. There are multiple different kinds of views, each dictated by a different class.
@@ -87,7 +99,7 @@ Given what we know so far, a basic native depiction looks like this:
 
 ```json
 {
-  "minVersion": "0.1",
+  "minVersion": "0.4",
   "class": "DepictionTabView",
   "headerImage": "https://example.com/banner.png",
   "tintColor": "#6264D3",
@@ -108,7 +120,7 @@ Given what we know so far, a basic native depiction looks like this:
 }
 ```
 
-A list of the different views that can be used can be found below:
+A list of the different views that can be used can be found below. Feel free to experiment and try out all of what Sileo has to offer!
 
 #### Headers
 
@@ -119,8 +131,8 @@ Creates a large title intended for separating major sections of a given tab.
 | Key       | Type                                  | Description                    | Required?
 |-----------|---------------------------------------|--------------------------------|----------------|
 | `title` | String | The title of the header.           | Yes
-| `useMargins` | Boolean | Allow margins above/below the header. | No
-| `useBottomMargin` | Boolean | Adds a margin below the header (if margins are enabled). | No
+| `useMargins` | Boolean | If false, remove all margins. | No
+| `useBottomMargin` | Boolean | Add spacing below the header. | No
 | `useBoldText` | Boolean | Make the text bold. | No
 | `alignment`   | AlignEnum | Change the alignment to the left (`0`), center (`1`), or the right (`2`). | No
 
@@ -133,8 +145,8 @@ Subheaders are smaller headers.
 | Key       | Type                                  | Description                    | Required?
 |-----------|---------------------------------------|--------------------------------|----------------|
 | `title` | String | The title of the header. | Yes
-| `useMargins` | Boolean | Allow margins above/below the header. | No
-| `useBottomMargin` | Boolean | Adds a margin below the header (if margins are enabled). | No
+| `useMargins` | Boolean | If false, remove all margins. | No
+| `useBottomMargin` | Boolean | Add spacing below the header. | No
 | `useBoldText` | Boolean | Make the text bold. | No
 
 #### Labels
@@ -147,8 +159,8 @@ Labels are highly-customizable snippets of text with a customizable color.
 |-----------|---------------------------------------|--------------------------------|----------------|
 | `text` | String | The text to be displayed next to the title. | Yes
 | `margins` | UIEdgeInsets | Adds margins around the element. Formatted `{top, left, bottom, right}`. | No
-| `useMargins` | Boolean | Allow margins above/below the header. | No
-| `usePadding` | Boolean | Add a slight margin to the top and bottom of a label. | No
+| `useMargins` | Boolean | If false, remove all margins. | No
+| `usePadding` | Boolean | If false, remove vertical spacing. | No
 | `fontWeight` | String | The "weight" of the text. | No
 | `fontSize` | Double | The size of the label text. | No
 | `textColor` | String (Color) | Change the color of the label text. | No
@@ -167,8 +179,8 @@ Allows for basic Markdown or HTML to be displayed, ideal for large blocks of tex
 | Key       | Type                                  | Description                    | Required?
 |-----------|---------------------------------------|--------------------------------|----------------|
 | `markdown` | String (Markdown) | The text to be rendered as Markdown (or HTML)           | Yes
-| `useSpacing` | Boolean | Enable or disable the use of vertical spacing.           | No
-| `useMargins` | Boolean | Enable or disable the use of horizontal margins.           | No
+| `useSpacing` | Boolean | If false, remove vertical spacing.           | No
+| `useMargins` | Boolean | If false, remove all margins.           | No
 | `useRawFormat` | Boolean | If true, `markdown` will accept basic HTML instead of Markdown. | No
 | `tintColor`   | String (Color) | An accent color used for links. Accepts CSS-compatible color strings. | No
 
@@ -205,7 +217,7 @@ Embeds an image in a depiction, given a link to an image.
 | `height`  | Double                                | The height of the image.       | Yes
 | `cornerRadius` | Double                           | The roundness of the view's corners. | Yes
 | `alignment` | AlignEnum                           | Change the alignment to the left (`0`), center (`1`), or the right (`2`). | No
-| `horizontalPadding` | Double                      | Padding to put above and below the button. | No
+| `xPadding` | Double                      | Padding to put above and below the element. | No
 
 #### Screenshots
 
@@ -319,12 +331,13 @@ Adds a wide button that opens a given URL or performs another action when tapped
 
 | Key       | Type                                     | Description    | Required?
 |-----------|---------------------------------------|-------------------|----------------|
-| `text` | String | The button's label. | Yes
+| `text` | String | The button's label. | No
 | `action` | String (URL) | The URL to open when the button is pressed. | Yes
 | `backupAction` | String (URL) | An alternate action to try if the action is not supported. | No
 | `openExternal` | Double | Set whether to open the URL in an external app. | No
 | `yPadding` | Double | Padding to put above and below the button. | No
 | `tintColor`   | String (Color) | The background color of the button. Accepts CSS-compatible color strings. | No
+| `view` | [View object](#view-object) | A View to replace the button text with. Left-top-aligned. | No
 
 #### Separator
 
