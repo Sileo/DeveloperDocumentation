@@ -66,7 +66,9 @@ Here's what that will look like in Sileo:
 **Request:**
 ```json
 {
-    "token": "BEARER f2ca1bb6c7e907d06dafe4687e579fce76b37e4e93b7605022da52e6ccc26fd2"
+    "token": "f2ca1bb6c7e907d06dafe4687e579fce76b37e4e93b7605022da52e6ccc26fd2",
+    "udid": "4e1243bd22c66e76c2ba9eddc1f91394e57f9f83",
+    "device": "iPhone7,2"
 }
 ```
 
@@ -88,7 +90,7 @@ Here's what that will look like in Sileo:
 **Request:**
 ```json
 {
-    "token": "BEARER f2ca1bb6c7e907d06dafe4687e579fce76b37e4e93b7605022da52e6ccc26fd2"
+    "token": "f2ca1bb6c7e907d06dafe4687e579fce76b37e4e93b7605022da52e6ccc26fd2"
 }
 ```
 
@@ -107,7 +109,7 @@ Here's what that will look like in Sileo:
 
 **Callback:**
 
-`sileo://authentication_success?token=BEARER%20f2ca1bb6c7e907d06dafe4687e579fce76b37e4e93b7605022da52e6ccc26fd2&payment_secret=jr38tgh9t832gew89gt3j8y4hjgmf92r1jt38gfhrq5jtwyhsgfekart0gh9fet8yhrgw89e3qw6h4gfn5ty5hgrfgh34ty5894g`
+`sileo://authentication_success?token=f2ca1bb6c7e907d06dafe4687e579fce76b37e4e93b7605022da52e6ccc26fd2&payment_secret=jr38tgh9t832gew89gt3j8y4hjgmf92r1jt38gfhrq5jtwyhsgfekart0gh9fet8yhrgw89e3qw6h4gfn5ty5hgrfgh34ty5894g`
 
 #### Payment Secret: Client Side Implementation Details
 
@@ -132,7 +134,7 @@ Tag: cydia::commercial
 `/package/org.coolstar.classicfolders2/info`
 ```json
 {
-    "token": "BEARER f2ca1bb6c7e907d06dafe4687e579fce76b37e4e93b7605022da52e6ccc26fd2",
+    "token": "f2ca1bb6c7e907d06dafe4687e579fce76b37e4e93b7605022da52e6ccc26fd2",
     "udid": "4e1243bd22c66e76c2ba9eddc1f91394e57f9f83",
     "device": "iPhone7,2"
 }
@@ -164,7 +166,7 @@ Tag: cydia::commercial
 `/package/org.coolstar.classicfolders2/purchase`
 ```json
 {
-    "token": "BEARER f2ca1bb6c7e907d06dafe4687e579fce76b37e4e93b7605022da52e6ccc26fd2",
+    "token": "f2ca1bb6c7e907d06dafe4687e579fce76b37e4e93b7605022da52e6ccc26fd2",
     "payment_secret": "jr38tgh9t832gew89gt3j8y4hjgmf92r1jt38gfhrq5jtwyhsgfekart0gh9fet8yhrgw89e3qw6h4gfn5ty5hgrfgh34ty5894g"
 }
 ```
@@ -214,7 +216,7 @@ When a user downloads a package from a repo with a payment provider in Sileo, in
 `/package/org.coolstar.classicfolders2/authorize_download`
 ```json
 {
-    "token": "BEARER f2ca1bb6c7e907d06dafe4687e579fce76b37e4e93b7605022da52e6ccc26fd2",
+    "token": "f2ca1bb6c7e907d06dafe4687e579fce76b37e4e93b7605022da52e6ccc26fd2",
     "udid": "4e1243bd22c66e76c2ba9eddc1f91394e57f9f83",
     "device": "iPhone7,2",
     "version": "1.0.1",
@@ -231,7 +233,7 @@ When a user downloads a package from a repo with a payment provider in Sileo, in
 
 The response of this request provides the URL that Sileo should download the package from. This request allows you to create a secure link for the download to be completed without allowing the repository to access the token.
 
-**This URL must be HTTPS. HTTP URLs will fail.**
+**This URL must be HTTPS; HTTP URLs will fail.**
 
 #### Security Considerations
 
