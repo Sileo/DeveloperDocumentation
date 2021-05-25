@@ -357,6 +357,9 @@ Adds a blank space of variable height.
 
 #### AdMob Integration
 
+AdMob integration was removed from Sileo 2.1 and is no longer available.
+
+<!--
 Class: `DepictionAdmobView`
 
 Adds an [AdMob](https://admob.google.com/home/) banner to the depiction if you wish to display an advertisement.
@@ -365,6 +368,8 @@ Adds an [AdMob](https://admob.google.com/home/) banner to the depiction if you w
 |-----------|---------------------------------------|-------------------|----------------|
 | `adUnitID`| String              | Your Ad Unit ID provided by Google. | Yes 
 | `adSize`  | String (`Banner`/`LargeBanner`/`SmartBanner`) | The size of the ad to be displayed. | No
+
+-->
 
 #### Ratings
 
